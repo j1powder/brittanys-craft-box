@@ -5,8 +5,10 @@ import Header from '@/layout/Header'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 import logo from '../assets/brittanyscraftbox.jpg'
 import frontBanner from '../assets/atfarmersmarket3.jpg'
+import { ElfsightWidget } from 'react-elfsight-widget';
 
 
 export default function Home() {
@@ -20,7 +22,7 @@ export default function Home() {
 
       </Head>
       <Header/>
-      <main >
+      <main className={styles.mainhome} >
         <Container>
         <Row>
           <Col md={12}>
@@ -35,23 +37,52 @@ export default function Home() {
         </Row>
         <Row>
           <Col md={12}>
-          <p>The perfect place for any and all custom craft creations! Whether you're looking for something scary for Halloween or something sweet for that special someone on Valentine's Day, we've got you covered.</p>
+          <p className={styles.topptags}>The perfect place for any and all custom craft creations! Whether you're looking for something scary for Halloween or something sweet for that special someone on Valentine's Day, we've got you covered.</p>
 
           </Col>
         </Row>
         <Row>
           <Col md={12}>
-          <p>Check out a sample of our latest crafts and creations. If you don't see exactly what you're looking for, it doesn't mean we don't have it or can't make it. Reach out to us about custom crafted products made just for YOU!</p>
+          <p className={styles.topptags}>Check out a sample of our latest crafts and creations. If you don't see exactly what you're looking for, it doesn't mean we don't have it or can't make it. Reach out to us about custom crafted products made just for YOU!</p>
 
           </Col>
 
+        </Row>
+        <Row>
+          <Col md={12}>
+            <Button className={styles.topbtn}>Call To Place an Order 575-640-8747</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={12}>
+            <p className={styles.ptags}>Come Check Us Out At The Farmers Market</p>
+          </Col>
         </Row>
         <Row className={styles.frontbanner}>
           <Col md={12} >
            
            </Col>
         </Row>
-        
+        <Row>
+          <Col md={12}>
+            <p className={styles.ptags}>We Support Local Business and Hope You Will Too</p>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={12}>
+        <ElfsightWidget widgetId="fe5e613d-bd3e-49e4-865a-06ce68e71f60" />;
+        </Col>
+        </Row>
+        <Row className={styles.purplerow}>
+          <Col md={6}>
+          <p className={styles.ptags}>"I got a pen for my baby brother for his birthday and it's way better than expected! Thank you so much!"</p>
+          <p className={styles.smallptags}>- Angelica Sandoval <br/> Happy Customer</p>
+          </Col>
+          <Col md={6}>
+            <p className={styles.ptags}>"Make the order already! What are you waiting for, this girl has skills!"</p>
+            <p className={styles.smallptags}>- Ricardo Herrera <br/> Happy Customer</p>
+          </Col>
+        </Row>
         </Container>
       </main>
       <br/>
@@ -59,3 +90,5 @@ export default function Home() {
     </>
   )
 }
+
+
