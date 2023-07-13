@@ -18,6 +18,7 @@ min-height: 500px;
     background-color: #9966CC !important;
     border: none;
     color: black;
+    width: 50%;
 }
 .topptags {
     font-size: 1.3rem; 
@@ -33,10 +34,62 @@ min-height: 500px;
     background-color: #9966CC !important;
 
 }
+.rowmargin {
+    margin:1rem 0rem;
+}
 
 .smallptags {
     text-align: center;
     font-size: 1rem;
     margin: 1rem;
     font-weight: bold;
+}
+
+.headertags {
+    margin: 1rem 0rem;
+}
+
+.bottompics {
+    width: 100%;
+    height: auto;
+}
+
+.section1 {
+    background-image: url('../assets/ghostbusters2.jpg');
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+min-height: 300px;
+}
+.section2 {
+    background-image: url('../assets/nativitytumblr.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 300px;
+}
+.section3 {
+    background-image: url('../assets/valentinepack.JPG');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 300px;
+}
+
+.socmedia {
+    width: 10%;
+    height: auto;
+    display: inline-block;
+    margin: 0 5px;
+    
+
+}
+
+.mediacontainer {
+    
+    margin: 0rem auto;
+    display: flex;
+    justify-content: center;
+   
+    
 }

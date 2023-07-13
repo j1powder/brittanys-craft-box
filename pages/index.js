@@ -9,6 +9,10 @@ import Button from 'react-bootstrap/Button'
 import logo from '../assets/brittanyscraftbox.jpg'
 import frontBanner from '../assets/atfarmersmarket3.jpg'
 import { ElfsightWidget } from 'react-elfsight-widget';
+import fbook from '../assets/403-4038633_fb-facebook-hd-png-download.png'
+import igram from '../assets/Instagram_logo_2022.svg.png'
+
+
 
 
 export default function Home() {
@@ -50,7 +54,7 @@ export default function Home() {
         </Row>
         <Row>
           <Col md={12}>
-            <Button className={styles.topbtn}>Call To Place an Order 575-640-8747</Button>
+            <Button className={styles.topbtn} href="tel:5756408747">Call To Place an Order 575-640-8747</Button>
           </Col>
         </Row>
         <Row>
@@ -81,6 +85,67 @@ export default function Home() {
           <Col md={6}>
             <p className={styles.ptags}>"Make the order already! What are you waiting for, this girl has skills!"</p>
             <p className={styles.smallptags}>- Ricardo Herrera <br/> Happy Customer</p>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={12}>
+            <h1 className={styles.headertags}>Crafts For Any Occasion</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={4}>
+            <p className={styles.ptags}>Who You Gonna Call?</p>
+            <section className={styles.section1}></section>
+{/*             <Image className={styles.bottompics} src={gbusters} alt='ghostbuster' />
+ */}          </Col>
+          <Col md={4}>
+            <p className={styles.ptags}>Tis the season</p>
+            <section className={styles.section2}></section>
+{/*             <Image className={styles.bottompics} src={nativity} alt='nativity cup' />
+ */}          </Col>
+          <Col md={4}>
+            <p className={styles.ptags}>Be My Valentine</p>
+            <section className={styles.section3}></section>
+{/*             <Image className={styles.bottompics} src={valentine} alt='valentine package' />
+ */}
+          </Col>
+        </Row>
+        <Row className={styles.rowmargin}>
+          <Col md={6}>
+          <p className={styles.ptags}>Want to place an order? Easy, just email us at <a href="mailto:frombrittscrafts@gmail.com" >frombrittscrafts@gmail.com</a></p>
+            
+          </Col>
+          <Col  md={6}>
+          
+            <p className={styles.ptags}>Visit us on Facebook and Instagram</p>
+            <section className={styles.mediacontainer}>
+            <Image className={styles.socmedia} src={fbook} alt='facebook' />
+            <Image className={styles.socmedia} src={igram} alt='instagram' />
+            </section>
+          </Col>
+        </Row>
+        <Row className={styles.rowmargin}>
+          <Col md={12}>
+            <h1 className={styles.headertags}>At the Farmer's Market in Las Cruces, NM</h1>
+          </Col>
+        </Row>
+        <Row>
+          <p className={styles.ptags}>Use the map below for directions</p>
+        </Row>
+        <Row>
+        
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12730.923017565212!2d-106.78128360291969!3d32.31223530058113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14fae31fcb749621%3A0x85ff0339fe286aee!2sFarmers%20%26%20Crafts%20Market%20of%20Las%20Cruces!5e0!3m2!1sen!2sus!4v1689211446991!5m2!1sen!2sus" width="600" height="450" style={{border: "0"}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        
+        </Row>
+        <Row>
+          <Col md={12}>
+            <p className={styles.ptags}>Did you find what you were looking for? Give us a call and ask about our custom products we design just for you!</p>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={12}>
+          <Button className={styles.topbtn} href="tel:5756408747" >Give Us a Call</Button>
+
           </Col>
         </Row>
         </Container>
