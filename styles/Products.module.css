@@ -3,3 +3,13 @@
     margin: 1rem 0rem;
     font-weight: 580;
 }
+
+.bottombtn {
+    display: block;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #9966CC !important;
+    border: none;
+    color: black;
+    width: 50%;
+}

@@ -11,6 +11,7 @@ import frontBanner from '../assets/atfarmersmarket3.jpg'
 import { ElfsightWidget } from 'react-elfsight-widget';
 import fbook from '../assets/403-4038633_fb-facebook-hd-png-download.png'
 import igram from '../assets/Instagram_logo_2022.svg.png'
+import Footer from '@/layout/Footer'
 
 
 
@@ -145,13 +146,13 @@ export default function Home() {
         <Row>
           <Col md={12}>
           <Button className={styles.topbtn} href="tel:5756408747" >Give Us a Call</Button>
-
+          <br/>
           </Col>
         </Row>
         </Container>
       </main>
-      <br/>
-      <br/>   
+        
+      <Footer/>  
     </>
   )
 }
