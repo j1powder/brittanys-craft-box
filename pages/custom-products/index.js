@@ -18,11 +18,16 @@ const index = () => {
 return <>
     <Header /> 
     
-
-    <Container>
+    <main className={classes.page}>
+    <Container >
         <Row>
             <Col md={12}>
-            <h1 className={classes.headline}>Latest Creations</h1>
+                <h1 className={classes.headline}>Check out all of our latest custom products</h1>
+            </Col>
+        </Row>
+        <Row>
+            <Col md={12}>
+            <h2 className={classes.headline}>Latest Creations</h2>
             </Col>
         </Row>
         <Row>
@@ -32,22 +37,28 @@ return <>
                 
             </Col>
         </Row>
-        <Row>
-            <Col md={6} style={{padding: "0rem .5rem"}}>
-                <ReactPlayer url={video} loop playing={true} controls  />
+        <Row style={{margin: "0rem 1rem"}}>
+            <Col md={4} style={{padding: "0rem .5rem"}}>
+               {/*  <ReactPlayer url={video} loop playing={true} controls  /> */}
+                <video className={classes.video} loop autoPlay controls>
+                    <source src={video} type="video/mp4" />
+                </video>
                 <br/>
                 <br/>
             </Col>
 
-            <Col md={6} style={{padding: "0rem .5rem"}}>
-                <ReactPlayer url={video2} loop playing={true} controls />
+            <Col md={4} style={{padding: "0rem .5rem"}}>
+            <video className={classes.video} loop autoPlay controls>
+                    <source src={video2} type="video/mp4" />
+                </video>
                 <br/>
                 <br/>
             </Col>
+            <Col md={4}></Col>
         </Row>
         <Row>
             <Col md={12}>
-                <h1 className={classes.headline}>Custom Made Creations Perfect for Halloween</h1>
+                <h2 className={classes.headline}>Custom Made Creations Perfect for Halloween</h2>
             </Col>
         </Row>
         <Row>
@@ -59,7 +70,7 @@ return <>
         </Row>
         <Row>
             <Col md={12}>
-                <h1 className={classes.headline}>Christmas Time Collection</h1>
+                <h2 className={classes.headline}>Christmas Time Collection</h2>
             </Col>
         </Row>
         <Row>
@@ -71,7 +82,7 @@ return <>
         </Row>
         <Row>
             <Col md={12}>
-                <h1 className={classes.headline}>Great for any Occasion</h1>
+                <h2 className={classes.headline}>Great for any Occasion</h2>
             </Col>
         </Row>
 
@@ -84,16 +95,17 @@ return <>
 
         <Row>
             <Col md={12}>
-            <h1 className={classes.headline}>Call and Place Your Order Today!</h1>
+            <h2 className={classes.headline}>Call and Place Your Order Today!</h2>
             </Col>
         </Row>
 
         <Row>
             <Col md={12}>
-            <Button className={classes.bottombtn}>Call and Place Your Order Today!</Button>
+            <a style={{textDecoration: "none"}} href="tel:5756408747"><Button className={classes.bottombtn}>Call and Place Your Order Today!</Button></a>
             </Col>
         </Row> 
     </Container>
+    </main>
     <Footer/>
 
     </>
