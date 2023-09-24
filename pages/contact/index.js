@@ -10,6 +10,8 @@ import classes from '../../styles/Products.module.css'
 import Image from 'next/image'
 import farmermarket2 from '../../assets/farmersmarketpic1.jpg';
 import lascruces from '../../assets/LasCrucesView.jpg'
+import fbook from '../../assets/403-4038633_fb-facebook-hd-png-download.png'
+import igram from '../../assets/Instagram_logo_2022.svg.png'
 
 const Contact = () => {
   
@@ -18,6 +20,7 @@ const Contact = () => {
   <Header/>
   <main className={classes.page}>
 <Container>
+  <br/>
     <Row>
         <Col md={12}>
             <Image className={classes.contactimage} src={farmermarket2} />
@@ -50,10 +53,25 @@ const Contact = () => {
     </Row>
     <Row>
       <Col md={12}>
-        <h2 className={classes.contactpage}>Find us on social media</h2>
+        <h2 className={classes.findus} >Find us on social media</h2>
       </Col>
     </Row>
-    
+    <Row>
+    <Col  md={12}>
+          <section className={classes.mediacontainer}>
+          <Image className={classes.socmedia} src={fbook} alt='facebook' />
+          <Image className={classes.socmedia} src={igram} alt='instagram' />
+          </section>
+        </Col>
+    </Row>
+    <br/>
+    <br/>
+    <Row>
+      <Col md={12}>
+      <ElfsightWidget widgetId="fde6d531-3570-4d24-a347-a93d09e21f52" />
+      </Col>
+    </Row>
+<br/>
 </Container>
   </main>
   <Footer/>

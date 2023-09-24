@@ -42,6 +42,7 @@
 .contactimage {
     display: block;
     margin: 1rem auto;
+    max-width: 100%;
 }
 
 .contactpage {
@@ -50,3 +51,21 @@
     margin: 3rem 0rem;
 }
 
+.socmedia {
+    width: 10%;
+    height: auto;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.mediacontainer {
+    margin: 0rem auto;
+    display: flex;
+    justify-content: center;
+}
+
+.findus {
+    text-align: center;
+    font-weight: bold;
+    margin: 1rem 0rem;
+}
