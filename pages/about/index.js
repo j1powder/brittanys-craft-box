@@ -19,6 +19,7 @@ const About = () => {
                 <Col md={6}>
                     <h1 className={classes.headline}>How Brittany's Craft Box Started</h1>
                     <p>"I started Brittany’s Craft Box about a year ago. I’ve always enjoyed making new crafts. I would see things and challenge myself to make them and learn a new skill. I started the business when someone asked me to make something as a gift. From there, it took on a life of it’s own. And while I do this part-time to supplement my full-time job, this is truly where my heart and passion lie"</p>
+                    <p className={classes.ownerComment}><span style={{fontWeight: 'bold'}}>Brittany Salaiz</span><br/>-Owner-Brittany's Craft Box</p>
                 </Col>
                 <Col md={6}>
                     <Image className={classes.aboutimage} src={farmersmarket} alt="farmers market" />
@@ -33,6 +34,7 @@ const About = () => {
                 
                 </Col>
             </Row>
+            <br/>
         </Container>
     </main>
     <Footer/>
