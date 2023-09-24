@@ -38,7 +38,7 @@ return <>
             </Col>
         </Row>
         <Row style={{margin: "0rem 1rem"}}>
-            <Col md={4} style={{padding: "0rem .5rem"}}>
+            <Col md={5} style={{padding: "0rem .5rem"}}>
                {/*  <ReactPlayer url={video} loop playing={true} controls  /> */}
                 <video className={classes.video} loop autoPlay controls>
                     <source src={video} type="video/mp4" />
@@ -47,14 +47,14 @@ return <>
                 <br/>
             </Col>
 
-            <Col md={4} style={{padding: "0rem .5rem"}}>
+            <Col md={5} style={{padding: "0rem .5rem"}}>
             <video className={classes.video} loop autoPlay controls>
                     <source src={video2} type="video/mp4" />
                 </video>
                 <br/>
                 <br/>
             </Col>
-            <Col md={4}></Col>
+            <Col md={2}></Col>
         </Row>
         <Row>
             <Col md={12}>
