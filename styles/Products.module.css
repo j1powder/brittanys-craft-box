@@ -23,3 +23,14 @@
     height: auto;
     max-width: 300px;
 }
+
+.aboutimage {
+    width: 100%;
+    height: auto;
+}
+
+.center {
+
+    border: 1px solid black;
+    text-align: right;
+}

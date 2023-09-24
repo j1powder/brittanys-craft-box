@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container'
 import  NavDropdown  from 'react-bootstrap/NavDropdown';
 import classes from './Layouts.module.css'
+import Link from 'next/link';
 
 const Header = () => {
 
@@ -17,9 +18,9 @@ const Header = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/custom-products">Products</Nav.Link>
-            <Nav.Link href="#action2">About</Nav.Link>
+            <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/">Home</Link>
+            <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/custom-products">Custom Products</Link>
+            <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/about">About</Link>
             <Nav.Link href="#action2">Contact</Nav.Link>
 
           </Nav>
