@@ -20,7 +20,8 @@ const Header = () => {
             <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/">Home</Link>
             <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/custom-products">Custom Products</Link>
             <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/about">About</Link>
-            <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="contact">Contact</Link>
+            <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="contact">Contact Us</Link>
+            <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="contact">Store</Link>
 
           </Nav>
 
