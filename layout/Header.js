@@ -15,13 +15,12 @@ const Header = () => {
         <Navbar.Collapse >
           <Nav
             className="me-auto my-2 my-lg-0"
-
           >
             <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/">Home</Link>
             <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/custom-products">Custom Products</Link>
             <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/about">About</Link>
             <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="contact">Contact Us</Link>
-            <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="contact">Store</Link>
+            <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/store">Store</Link>
 
           </Nav>
 

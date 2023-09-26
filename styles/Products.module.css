@@ -69,3 +69,15 @@
     font-weight: bold;
     margin: 1rem 0rem;
 }
+
+.storepics {
+    width: 200px;
+    height: 200px;
+    padding: .5rem;
+    object-fit: cover;
+}
+
+.picdiv {
+    padding: .5rem;
+}
+
