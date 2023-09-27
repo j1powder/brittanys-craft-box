@@ -77,6 +77,10 @@
     object-fit: cover;
 }
 
+.storepics:hover {
+    cursor: pointer;
+}
+
 .picdiv {
     padding: .5rem;
 }
