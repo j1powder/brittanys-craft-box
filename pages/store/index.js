@@ -14,7 +14,7 @@ import christmastumblr from '../../assets/christmastumbler.jpg';
 import gingerbread from '../../assets/gingerbreadcup.jpg'
 import greysanatomy1 from '../../assets/greysanatomyblanket.jpg'
 import grinchblend from '../../assets/grinchmasblend.jpg'
-import { projectStorage } from '@/firebaseConfig'
+import { projectFirestore, projectStorage } from '@/firebaseConfig'
 
 
 
@@ -26,8 +26,9 @@ const Store = () => {
     const [storagePics, setStoragePics] = useState();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [picsData, setPicsData] = useState();
 
-    useEffect(()=>{
+/* useEffect(()=>{
         
         const getPictures = async () => {
             const storageRef = projectStorage.ref();
@@ -35,11 +36,30 @@ const Store = () => {
             const image = await picRef.getDownloadURL();
             setStoragePics({picture: picRef, link: image});
         }
-
 getPictures();
-    },[])
+    },[]) */
 
-const path = '/billboard-bg--sky-cranes.jpg'
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const collectionRef = projectFirestore.collection('store-pictures') // Replace 'yourCollection' with the actual name of your Firestore collection
+            const snapshot = await collectionRef.get();
+    
+            const data = snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+            }));
+    
+            setPicsData(data);
+          } catch (error) {
+            console.error('Error fetching Firestore collection:', error);
+          }
+        };
+    
+        fetchData();
+      }, []);
+
+/* const path = '/billboard-bg--sky-cranes.jpg'
 
 const downloadURL = async () => {
     try {
@@ -48,12 +68,15 @@ const downloadURL = async () => {
     } catch (error) {
       console.error('Error fetching download URL:', error);
     }
-  };
+  }; */
 
+/*   if(picsData){
+    console.log(picsData)
+  }
 
     if (storagePics){
 console.log(storagePics)
-    }
+    } */
   return <>
         <Header/>
         <main className={classes.page}>
@@ -64,9 +87,30 @@ console.log(storagePics)
                 </Col>
             </Row>
             <Row>
+            {picsData && picsData.map((pic)=>{
+
+return <>
+        <Col md={3}>                    
+            <div className={classes.picdiv}>
+            <img onClick={()=>setShow(true)} className={classes.storepics} src={pic.url} alt="pic"/>
+             <br/>
+            <span>{pic.caption}</span>
+             </div>
+        </Col>
+
+</>
+})}
+            </Row>
+
+
+
+
+
+
+ {/*            <Row>
                 <Col md={3}>
                     <div className={classes.picdiv}>
-                    <img onClick={()=>setShow(true)} className={classes.storepics} src={storagePics && storagePics.link} alt="pic"/>
+                    <img onClick={()=>setShow(true)} className={classes.storepics} src={"https://firebasestorage.googleapis.com/v0/b/brittanys-craft-box.appspot.com/o/christmastumbler.jpg?alt=media&token=94a42a71-483e-4022-ad92-4fd2a0519b33&_gl=1*qdp9tj*_ga*ODk4NjIxNDc3LjE2NjMzMzg3NDI.*_ga_CW55HF8NVT*MTY5NTkzMzQ2NC4xOTYuMS4xNjk1OTMzNjU2LjYwLjAuMA"} alt="pic"/>
                     <br/>
                     <span>Caption goes here</span>
                     </div>
@@ -154,7 +198,10 @@ console.log(storagePics)
                     <span>Caption goes here</span>
                     </div>
                 </Col>
-            </Row>
+            </Row> */}
+
+
+
         </Container>
 
         <Modal show={show} onHide={handleClose} centered>
