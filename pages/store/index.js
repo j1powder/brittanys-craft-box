@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '@/layout/Header'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -14,7 +14,7 @@ import christmastumblr from '../../assets/christmastumbler.jpg';
 import gingerbread from '../../assets/gingerbreadcup.jpg'
 import greysanatomy1 from '../../assets/greysanatomyblanket.jpg'
 import grinchblend from '../../assets/grinchmasblend.jpg'
-
+import { projectStorage } from '@/firebaseConfig'
 
 
 
@@ -23,11 +23,37 @@ import grinchblend from '../../assets/grinchmasblend.jpg'
 
 const Store = () => {
     const [show, setShow] = useState()
-    
+    const [storagePics, setStoragePics] = useState();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    useEffect(()=>{
+        
+        const getPictures = async () => {
+            const storageRef = projectStorage.ref();
+            const picRef = storageRef.child('/billboard-bg--sky-cranes.jpg')
+            const image = await picRef.getDownloadURL();
+            setStoragePics({picture: picRef, link: image});
+        }
 
+getPictures();
+    },[])
+
+const path = '/billboard-bg--sky-cranes.jpg'
+
+const downloadURL = async () => {
+    try {
+      const url = await storage.ref().child(path).getDownloadURL();
+      return url;
+    } catch (error) {
+      console.error('Error fetching download URL:', error);
+    }
+  };
+
+
+    if (storagePics){
+console.log(storagePics)
+    }
   return <>
         <Header/>
         <main className={classes.page}>
@@ -40,7 +66,7 @@ const Store = () => {
             <Row>
                 <Col md={3}>
                     <div className={classes.picdiv}>
-                    <Image onClick={()=>setShow(true)} className={classes.storepics} src={christmastumblr} />
+                    <img onClick={()=>setShow(true)} className={classes.storepics} src={storagePics && storagePics.link} alt="pic"/>
                     <br/>
                     <span>Caption goes here</span>
                     </div>
