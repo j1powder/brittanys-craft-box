@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { ElfsightWidget } from 'react-elfsight-widget';
 import Modal from 'react-bootstrap/Modal'
-
+import Alert from 'react-bootstrap/Alert';
 import Footer from '@/layout/Footer'
 import classes from '../../styles/Products.module.css'
 import Image from 'next/image'
@@ -27,6 +27,7 @@ const Store = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [picsData, setPicsData] = useState();
+   
 
 
     useEffect(() => {
@@ -51,6 +52,9 @@ const Store = () => {
 
 
   return <>
+
+
+
         <Header/>
         <main className={classes.page}>
         <Container>
@@ -68,6 +72,8 @@ return <>
             <img onClick={()=>setShow(true)} className={classes.storepics} src={pic.url} alt="pic"/>
              <br/>
             <span>{pic.caption}</span>
+            <br/>
+            <span>${pic.price}</span>
              </div>
         </Col>
 
