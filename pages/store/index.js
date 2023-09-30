@@ -28,16 +28,6 @@ const Store = () => {
     const handleShow = () => setShow(true);
     const [picsData, setPicsData] = useState();
 
-/* useEffect(()=>{
-        
-        const getPictures = async () => {
-            const storageRef = projectStorage.ref();
-            const picRef = storageRef.child('/billboard-bg--sky-cranes.jpg')
-            const image = await picRef.getDownloadURL();
-            setStoragePics({picture: picRef, link: image});
-        }
-getPictures();
-    },[]) */
 
     useEffect(() => {
         const fetchData = async () => {
@@ -59,24 +49,7 @@ getPictures();
         fetchData();
       }, []);
 
-/* const path = '/billboard-bg--sky-cranes.jpg'
 
-const downloadURL = async () => {
-    try {
-      const url = await storage.ref().child(path).getDownloadURL();
-      return url;
-    } catch (error) {
-      console.error('Error fetching download URL:', error);
-    }
-  }; */
-
-/*   if(picsData){
-    console.log(picsData)
-  }
-
-    if (storagePics){
-console.log(storagePics)
-    } */
   return <>
         <Header/>
         <main className={classes.page}>
@@ -90,7 +63,7 @@ console.log(storagePics)
             {picsData && picsData.map((pic)=>{
 
 return <>
-        <Col md={3}>                    
+        <Col sm={3}>                    
             <div className={classes.picdiv}>
             <img onClick={()=>setShow(true)} className={classes.storepics} src={pic.url} alt="pic"/>
              <br/>

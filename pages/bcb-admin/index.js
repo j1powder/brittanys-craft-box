@@ -7,34 +7,39 @@ import Modal from 'react-bootstrap/Modal'
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
 import classes from '../../styles/Admin.module.css'
+import { projectFirestore, projectStorage } from '@/firebaseConfig'
 
 const Admin = () => {
   
+  const AddProduct = () => {
+
+
+
+  }
   return <>
         
-        <h2>Admin Page Coming Soon</h2>
-        <br/>
+
+
         <Container>
-
-        
-        <Card className={classes.logincard}>
-            <Row>
-
+          <Row>
             <Col md={12}>
-            
+              <div className={classes.divcontainer}>
+              <h2>Add New Product</h2>
             <Form>
               <Form.Group>
-                <Form.Control className={classes.input} type="email" placeholder='Email' />
-                <Form.Control className={classes.input} type="password" placeholder='Password' />
+                <Form.Control className={classes.addpicform} type="email" placeholder='Caption' />
+                <Form.Control className={classes.addpicform} type="password" placeholder='Price' />
+                <Form.Control className={classes.addpicform} placeholder="Product Name" />
                 </Form.Group> 
                 <br/>
-             <Button>Login</Button> 
+             <Button>Add Product</Button> 
              
              
             </Form>
+            </div>
             </Col>
-            </Row>
-        </Card>
+          </Row>
+
         </Container>
         </>
 }
