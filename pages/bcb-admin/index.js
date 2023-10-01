@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -11,7 +11,7 @@ import ToastContainer from 'react-bootstrap/ToastContainer';
 import classes from '../../styles/Admin.module.css'
 import { projectFirestore, projectStorage } from '@/firebaseConfig'
 import { getStorage, ref, updateMetadata, getDownloadURL } from "firebase/storage";
-
+import { AuthContext } from '@/firebase-helpers/AuthContext'
 
 const Admin = () => {
   const [selectedFile, setSelectedFile] = useState();
@@ -20,6 +20,7 @@ const Admin = () => {
   const [caption, setCaption] = useState();
   const [show, setShow] = useState(false);
   const [errorShow, setErrorShow] = useState(false);
+  const { currentUser } = useContext(AuthContext)
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -88,6 +89,8 @@ const Admin = () => {
   }
 console.log(price, caption, selectedFile)
   
+console.log(currentUser)
+
   return <>
         
       <Toast style={{margin: "1rem"}} onClose={() => setShow(false)} show={show} delay={3000} autohide bg={"success"}>

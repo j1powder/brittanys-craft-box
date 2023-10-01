@@ -1,6 +1,7 @@
 import firebase from "firebase/compat/app"
 import "firebase/compat/firestore";
 import "firebase/compat/storage"
+import 'firebase/compat/auth';
 
 
 const firebaseConfig = {
@@ -16,7 +17,10 @@ const firebaseConfig = {
 if(!firebase.apps.length){
   firebase.initializeApp(firebaseConfig);
 }
+// initialize services
   const projectFirestore = firebase.firestore();
   const projectStorage = firebase.storage();
+  const projectAuth = firebase.auth();
+  const timestamp = firebase.firestore.Timestamp
 
-  export {projectFirestore, projectStorage};
+  export {projectFirestore, projectStorage, projectAuth, timestamp};
