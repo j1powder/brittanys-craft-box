@@ -77,7 +77,7 @@ const Store = () => {
         <Container>
             <Row>
                 <Col md={12}>
-                <h1>Store Page Coming Soon</h1>
+                <h1>Store Page Coming Soon</h1> 
                 </Col>
             </Row>
             <Row>
@@ -112,17 +112,21 @@ return <>
                 <Row>
                     <Form>
                         <Form.Group>
-                    <Col xs={6}>
+   
+                    <Col md={4}>
                     <p>{caption}<br/>
                         price: {price} each
                     </p>
                     </Col>
-                    <Col xs={6}>
+                    <Col md={8}>
                     <span>Quantity</span>
                     <Form.Control type="number" onChange={(e)=>setQuantity(e.target.value)}  /> 
                     <span>Total Price</span>
-                    <Form.Control type="number" value={price * quantity} /> 
+                    <Form.Control type="number" value={Math.round((price * quantity + Number.EPSILON)*100)/100} />
+                    <br/>
+                    <Button style={{float:"right"}}>Add+</Button> 
                     </Col>
+
                     </Form.Group>
                     </Form>
                 </Row>

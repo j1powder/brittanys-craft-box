@@ -6,6 +6,8 @@ import  NavDropdown  from 'react-bootstrap/NavDropdown';
 import classes from './Layouts.module.css'
 import Link from 'next/link';
 import { AuthContext } from '@/firebase-helpers/AuthContext';
+import Image from 'next/image';
+import Logo from '../assets/shoppingcart.png'
 
 const Header = () => {
 const {currentUser, signOut} = useContext(AuthContext);
@@ -26,10 +28,12 @@ const {currentUser, signOut} = useContext(AuthContext);
             {currentUser && <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/bcb-admin" >Admin</Link>}
 
             {currentUser && <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/" onClick={signOut}>Sign Out</Link>}
-
+            
           </Nav>
-
+          
         </Navbar.Collapse>
+        <span></span>
+        <Image className={classes.logo} src={Logo} alt='cart logo' />
       </Container>
     </Navbar>
     </>
