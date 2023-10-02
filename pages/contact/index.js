@@ -23,7 +23,7 @@ const Contact = () => {
   <br/>
     <Row>
         <Col md={12}>
-            <Image className={classes.contactimage} src={farmermarket2} />
+            <Image className={classes.contactimage} src={farmermarket2} alt="farmers market pic"/>
         </Col>
     </Row>
     <Row>

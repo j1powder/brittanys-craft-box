@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { ElfsightWidget } from 'react-elfsight-widget';
 import Modal from 'react-bootstrap/Modal'
+import Form from 'react-bootstrap/Form'
 import Alert from 'react-bootstrap/Alert';
 import Footer from '@/layout/Footer'
 import classes from '../../styles/Products.module.css'
@@ -24,9 +25,12 @@ import { projectFirestore, projectStorage } from '@/firebaseConfig'
 const Store = () => {
     const [show, setShow] = useState()
     const [storagePics, setStoragePics] = useState();
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     const [picsData, setPicsData] = useState();
+    const [price, setPrice] = useState();
+    const [caption, setCaption] = useState();
+    const [productId, setProductId] = useState();
+    const [totalPrice, setTotalPrice] = useState();
+    const [quantity, setQuantity] = useState();
    
 
 
@@ -50,6 +54,19 @@ const Store = () => {
         fetchData();
       }, []);
 
+      console.log(totalPrice)
+
+      const handleClose = () =>{ 
+        setShow(false);
+        setQuantity(0);
+        setTotalPrice(0);
+    }
+      const handleShow = () => setShow(true);
+
+      const getTotalPrice = (e) => {
+            setQuantity(e.target.value);
+      }
+
 
   return <>
 
@@ -67,9 +84,13 @@ const Store = () => {
             {picsData && picsData.map((pic)=>{
 
 return <>
-        <Col sm={3}>                    
+        <Col md={3} key={pic.id} >                    
             <div className={classes.picdiv}>
-            <img onClick={()=>setShow(true)} className={classes.storepics} src={pic.url} alt="pic"/>
+            <img 
+                onClick={()=>{setShow(true); console.log(pic.id); setCaption(pic.caption); setPrice(pic.price); setProductId(pic.id)}} 
+                className={classes.storepics} 
+                src={pic.url} 
+                alt="pic"/>
              <br/>
             <span>{pic.caption}</span>
             <br/>
@@ -80,114 +101,34 @@ return <>
 </>
 })}
             </Row>
-
-
-
-
-
-
- {/*            <Row>
-                <Col md={3}>
-                    <div className={classes.picdiv}>
-                    <img onClick={()=>setShow(true)} className={classes.storepics} src={"https://firebasestorage.googleapis.com/v0/b/brittanys-craft-box.appspot.com/o/christmastumbler.jpg?alt=media&token=94a42a71-483e-4022-ad92-4fd2a0519b33&_gl=1*qdp9tj*_ga*ODk4NjIxNDc3LjE2NjMzMzg3NDI.*_ga_CW55HF8NVT*MTY5NTkzMzQ2NC4xOTYuMS4xNjk1OTMzNjU2LjYwLjAuMA"} alt="pic"/>
-                    <br/>
-                    <span>Caption goes here</span>
-                    </div>
-                </Col>
-                <Col md={3}>
-                <div className={classes.picdiv}>
-                    <Image onClick={()=>setShow(true)} className={classes.storepics} src={gingerbread} />
-                    <br/>
-                    <span>Caption goes here</span>
-                    </div>
-                </Col>
-                <Col md={3}>
-                <div className={classes.picdiv}>
-                    <Image onClick={()=>setShow(true)} className={classes.storepics} src={greysanatomy1} />
-                    <br/>
-                    <span>Caption goes here</span>
-                    </div>
-                </Col>
-                <Col md={3}>
-                <div className={classes.picdiv}>
-                    <Image onClick={()=>setShow(true)} className={classes.storepics} src={grinchblend} />
-                    <br/>
-                    <span>Caption goes here</span>
-                    </div>
-                </Col>
-            </Row>
-<br/>
-                <Row>
-                <Col md={3}>
-                    <div className={classes.picdiv}>
-                    <Image onClick={()=>setShow(true)} className={classes.storepics} src={christmastumblr} />
-                    <br/>
-                    <span>Caption goes here</span>
-                    </div>
-                </Col>
-                <Col md={3}>
-                <div className={classes.picdiv}>
-                    <Image onClick={()=>setShow(true)} className={classes.storepics} src={gingerbread} />
-                    <br/>
-                    <span>Caption goes here</span>
-                    </div>
-                </Col>
-                <Col md={3}>
-                <div className={classes.picdiv}>
-                    <Image onClick={()=>setShow(true)} className={classes.storepics} src={greysanatomy1} />
-                    <br/>
-                    <span>Caption goes here</span>
-                    </div>
-                </Col>
-                <Col md={3}>
-                <div className={classes.picdiv}>
-                    <Image onClick={()=>setShow(true)} className={classes.storepics} src={grinchblend} />
-                    <br/>
-                    <span>Caption goes here</span>
-                    </div>
-                </Col>
-            </Row>
-            <br/>
-            <Row>
-                <Col md={3}>
-                    <div className={classes.picdiv}>
-                    <Image onClick={()=>setShow(true)} className={classes.storepics} src={christmastumblr} />
-                    <br/>
-                    <span>Caption goes here</span>
-                    </div>
-                </Col>
-                <Col md={3}>
-                <div className={classes.picdiv}>
-                    <Image onClick={()=>setShow(true)} className={classes.storepics} src={gingerbread} />
-                    <br/>
-                    <span>Caption goes here</span>
-                    </div>
-                </Col>
-                <Col md={3}>
-                <div className={classes.picdiv}>
-                    <Image onClick={()=>setShow(true)} className={classes.storepics} src={greysanatomy1} />
-                    <br/>
-                    <span>Caption goes here</span>
-                    </div>
-                </Col>
-                <Col md={3}>
-                <div className={classes.picdiv}>
-                    <Image onClick={()=>setShow(true)} className={classes.storepics} src={grinchblend} />
-                    <br/>
-                    <span>Caption goes here</span>
-                    </div>
-                </Col>
-            </Row> */}
-
-
-
         </Container>
 
         <Modal show={show} onHide={handleClose} centered>
         <Modal.Header closeButton>
           <Modal.Title>Add Product to Cart</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+            <Container>
+                <Row>
+                    <Form>
+                        <Form.Group>
+                    <Col xs={6}>
+                    <p>{caption}<br/>
+                        price: {price} each
+                    </p>
+                    </Col>
+                    <Col xs={6}>
+                    <span>Quantity</span>
+                    <Form.Control type="number" onChange={(e)=>setQuantity(e.target.value)}  /> 
+                    <span>Total Price</span>
+                    <Form.Control type="number" value={price * quantity} /> 
+                    </Col>
+                    </Form.Group>
+                    </Form>
+                </Row>
+            </Container>
+
+        </Modal.Body>
 
       </Modal>
 

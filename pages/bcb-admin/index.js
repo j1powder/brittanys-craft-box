@@ -1,4 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
+import Header from '@/layout/Header'
+import Footer from '@/layout/Footer'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -12,6 +14,7 @@ import classes from '../../styles/Admin.module.css'
 import { projectFirestore, projectStorage } from '@/firebaseConfig'
 import { getStorage, ref, updateMetadata, getDownloadURL } from "firebase/storage";
 import { AuthContext } from '@/firebase-helpers/AuthContext'
+import { useRouter } from 'next/router'
 
 const Admin = () => {
   const [selectedFile, setSelectedFile] = useState();
@@ -21,6 +24,13 @@ const Admin = () => {
   const [show, setShow] = useState(false);
   const [errorShow, setErrorShow] = useState(false);
   const { currentUser } = useContext(AuthContext)
+  const router = useRouter()
+
+  useEffect(()=>{
+    currentUser ? router.push('/bcb-admin')
+    : router.push('/bcb-admin/signin')
+  },[])
+
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -89,10 +99,10 @@ const Admin = () => {
   }
 console.log(price, caption, selectedFile)
   
-console.log(currentUser)
+//console.log(currentUser.email)
 
   return <>
-        
+        <Header />
       <Toast style={{margin: "1rem"}} onClose={() => setShow(false)} show={show} delay={3000} autohide bg={"success"}>
         <Toast.Header>
           
@@ -135,6 +145,7 @@ console.log(currentUser)
           </Row>
 
         </Container>
+        <Footer />
         </>
 }
 
