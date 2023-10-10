@@ -39,9 +39,11 @@ const theTotal = JSON.parse(total);
           </Nav>
           
         </Navbar.Collapse>
-        <span>Checkout {theTotal && theTotal.length}</span>
+        <span><Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/checkout">Checkout</Link> {theTotal && theTotal.length}</span>
         
-        <Image className={classes.logo} src={Logo} alt='cart logo' />
+        <Link style={{textDecoration: "none", color: "black", margin: ".5rem"}} href="/checkout">
+          <Image className={classes.logo} src={Logo} alt='cart logo' />
+          </Link>
       </Container>
     </Navbar>
     </>

@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+import Toast from 'react-bootstrap/Toast'
 import { ElfsightWidget } from 'react-elfsight-widget';
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
@@ -32,6 +33,8 @@ const Store = () => {
     const [totalPrice, setTotalPrice] = useState();
     const [quantity, setQuantity] = useState();
     const [cart, setCart] = useState([]);
+    const [showAlert, setShowAlert] = useState(false);
+    const [errorShow, setErrorShow] = useState(false)
    
 
 
@@ -71,9 +74,16 @@ const Store = () => {
      let totalCart = [];
       
       const addToCart = () => {
+        try {
+          cart.push(thisCart);
+          const localCart = sessionStorage.setItem('items: ', JSON.stringify(cart));
+          setShowAlert(true);
 
-        cart.push(thisCart);
-        const localCart = sessionStorage.setItem('items: ', JSON.stringify(cart));
+        }catch(err){
+
+        }  
+
+        //setShow(false);
         //console.log(thisCart)
         
 /*         setCart((prevState) => {
@@ -112,14 +122,18 @@ const Store = () => {
 
 
         <Header/>
+ 
         <main className={classes.page}>
         <Container>
             <Row>
                 <Col md={12}>
-                <h1>Store Page Coming Soon</h1> 
+                  <br/>
+                <h2>Products</h2> 
+                <h5>Select a Product to Add to Your Cart</h5>
                 </Col>
             </Row>
             <Row>
+
             {picsData && picsData.map((pic)=>{
 
 return <>
@@ -148,6 +162,21 @@ return <>
           <Modal.Title>Add Product to Cart</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        <Toast style={{margin: "1rem"}} onClose={() => setShowAlert(false)} show={showAlert} delay={3000} autohide bg={"success"}>
+        <Toast.Header>
+          <strong className="me-auto">SUCCESS!!</strong>
+          <small className="text-muted">just now</small>
+        </Toast.Header>
+        <Toast.Body><b>Added to Cart Successfully</b></Toast.Body>
+      </Toast>
+      <Toast style={{margin: "1rem"}} onClose={() => setErrorShow(false)} show={errorShow} delay={3000} autohide bg={"danger"}>
+        <Toast.Header>
+          
+          <strong className="me-auto">UH OH!!</strong>
+          <small className="text-muted">just now</small>
+        </Toast.Header>
+        <Toast.Body><b>Something Went Wrong, Product Not Added to Cart</b></Toast.Body>
+      </Toast>
             <Container>
                 <Row>
                     <Form>
