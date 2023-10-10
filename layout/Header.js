@@ -1,4 +1,4 @@
-import React, { useContext} from 'react'
+import React, { useContext, useState} from 'react'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container'
@@ -11,6 +11,13 @@ import Logo from '../assets/shoppingcart.png'
 
 const Header = () => {
 const {currentUser, signOut} = useContext(AuthContext);
+const [cartQuantity, setCartQuantity] = useState();
+
+const total = sessionStorage.getItem('items: ');
+const theTotal = JSON.parse(total);
+//console.log(theTotal[0])
+//console.log(JSON.stringify(theTotal));
+
     return <>
         <Navbar expand="sm" className={classes.navmenu} >
       <Container fluid>
@@ -32,7 +39,8 @@ const {currentUser, signOut} = useContext(AuthContext);
           </Nav>
           
         </Navbar.Collapse>
-        <span></span>
+        <span>Checkout {theTotal && theTotal.length}</span>
+        
         <Image className={classes.logo} src={Logo} alt='cart logo' />
       </Container>
     </Navbar>

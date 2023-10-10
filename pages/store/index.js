@@ -31,6 +31,7 @@ const Store = () => {
     const [productId, setProductId] = useState();
     const [totalPrice, setTotalPrice] = useState();
     const [quantity, setQuantity] = useState();
+    const [cart, setCart] = useState([]);
    
 
 
@@ -54,19 +55,57 @@ const Store = () => {
         fetchData();
       }, []);
 
-      console.log(totalPrice)
+      
 
       const handleClose = () =>{ 
         setShow(false);
         setQuantity(0);
         setTotalPrice(0);
     }
-      const handleShow = () => setShow(true);
+      // const handleShow = () => setShow(true);
 
-      const getTotalPrice = (e) => {
-            setQuantity(e.target.value);
+      // const getTotalPrice = (e) => {
+      //       setQuantity(e.target.value);
+      // }
+
+     let totalCart = [];
+      
+      const addToCart = () => {
+
+        cart.push(thisCart);
+        const localCart = sessionStorage.setItem('items: ', JSON.stringify(cart));
+        //console.log(thisCart)
+        
+/*         setCart((prevState) => {
+          return [...prevState, cart.push({
+            product: caption,
+            amount: quantity,
+            price: Math.round((price * quantity + Number.EPSILON)*100)/100
+          })]
+        }) */
       }
 
+      const thisCart = {
+        product: caption,
+        amount: quantity,
+        price: Math.round((price * quantity + Number.EPSILON)*100)/100
+      }
+
+
+ const addProductHandler = () => {
+    // localStorage.setItem('product:', caption)
+    // localStorage.setItem('price: ', price)
+    // localStorage.setItem('quantity', quantity)
+    // localStorage.setItem('total_price: ', Math.round((price * quantity + Number.EPSILON)*100)/100 )
+    localStorage.setItem('items: ', JSON.stringify(cart));
+
+    }
+   
+
+
+  // console.log(thisCart)
+  // console.log(totalCart)
+  console.log(JSON.stringify(cart));
 
   return <>
 
@@ -85,12 +124,13 @@ const Store = () => {
 
 return <>
         <Col md={3} key={pic.id} >                    
-            <div className={classes.picdiv}>
+            <div key={pic.id} className={classes.picdiv}>
             <img 
-                onClick={()=>{setShow(true); console.log(pic.id); setCaption(pic.caption); setPrice(pic.price); setProductId(pic.id)}} 
+                onClick={()=>{setShow(true); setCaption(pic.caption); setPrice(pic.price); setProductId(pic.id)}} 
                 className={classes.storepics} 
                 src={pic.url} 
-                alt="pic"/>
+                alt="pic"
+                key={pic.id} />
              <br/>
             <span>{pic.caption}</span>
             <br/>
@@ -122,9 +162,9 @@ return <>
                     <span>Quantity</span>
                     <Form.Control type="number" onChange={(e)=>setQuantity(e.target.value)}  /> 
                     <span>Total Price</span>
-                    <Form.Control type="number" value={Math.round((price * quantity + Number.EPSILON)*100)/100} />
+                    <Form.Control type="number" value={Math.round((price * quantity + Number.EPSILON)*100)/100} readOnly />
                     <br/>
-                    <Button style={{float:"right"}}>Add+</Button> 
+                    <Button style={{float:"right"}} onClick={addToCart}>Add to Cart+</Button> 
                     </Col>
 
                     </Form.Group>
