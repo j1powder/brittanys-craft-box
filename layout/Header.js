@@ -16,7 +16,7 @@ const [cartQuantity, setCartQuantity] = useState();
 const total = sessionStorage.getItem('items: ');
 const theTotal = JSON.parse(total);
 //console.log(theTotal[0])
-//console.log(JSON.stringify(theTotal));
+//console.log(theTotal);
 
     return <>
         <Navbar expand="sm" className={classes.navmenu} >
