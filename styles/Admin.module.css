@@ -24,3 +24,11 @@
 
     margin: 5rem 0rem;
 }
+
+.container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+
+}
