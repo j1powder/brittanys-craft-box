@@ -19,19 +19,15 @@ import classes from './Checkout.module.css'
 
 
 const CheckoutPage = () => {
-  const items = sessionStorage.getItem('items: ')
-  const myItems = JSON.parse(items);
-
 
 const total = sessionStorage.getItem('items: ');
 const theTotal = JSON.parse(total);
-//console.log(theTotal[0])
-//console.log(theTotal);
+
 let grandTotal = 0;
 if(theTotal){
   theTotal.map((item)=>{
   grandTotal = Math.round((grandTotal + item.price + Number.EPSILON)*100)/100;
-  console.log(grandTotal)
+ 
   });
 }
 
@@ -49,7 +45,7 @@ if(theTotal){
                 <Card className={classes.card}>
                 {theTotal && theTotal.map((item)=>{
                   return <>
-                        <Container className={classes.container}>
+                        <Container className={classes.container} key={item.id}>
                          <Row> 
                           <Col md={12}>
                         <div><b>Item:</b> {item.product}</div>

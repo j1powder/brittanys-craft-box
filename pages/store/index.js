@@ -62,14 +62,11 @@ const Store = () => {
 
       const handleClose = () =>{ 
         setShow(false);
+        setShowAlert(false);
         setQuantity(0);
         setTotalPrice(0);
     }
-      // const handleShow = () => setShow(true);
 
-      // const getTotalPrice = (e) => {
-      //       setQuantity(e.target.value);
-      // }
 
      let totalCart = [];
       
@@ -78,21 +75,10 @@ const Store = () => {
           cart.push(thisCart);
           const localCart = sessionStorage.setItem('items: ', JSON.stringify(cart));
           setShowAlert(true);
-
+          e.target.disabled
         }catch(err){
 
         }  
-
-        //setShow(false);
-        //console.log(thisCart)
-        
-/*         setCart((prevState) => {
-          return [...prevState, cart.push({
-            product: caption,
-            amount: quantity,
-            price: Math.round((price * quantity + Number.EPSILON)*100)/100
-          })]
-        }) */
       }
 
       const thisCart = {
@@ -103,19 +89,11 @@ const Store = () => {
 
 
  const addProductHandler = () => {
-    // localStorage.setItem('product:', caption)
-    // localStorage.setItem('price: ', price)
-    // localStorage.setItem('quantity', quantity)
-    // localStorage.setItem('total_price: ', Math.round((price * quantity + Number.EPSILON)*100)/100 )
+
     localStorage.setItem('items: ', JSON.stringify(cart));
 
     }
-   
 
-
-  // console.log(thisCart)
-  // console.log(totalCart)
-  console.log(JSON.stringify(cart));
 
   return <>
 
@@ -162,7 +140,7 @@ return <>
           <Modal.Title>Add Product to Cart</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <Toast style={{margin: "1rem"}} onClose={() => setShowAlert(false)} show={showAlert} delay={3000} autohide bg={"success"}>
+        <Toast style={{margin: "1rem"}} onClose={() => setShowAlert(false)} show={showAlert} delay={1500} autohide bg={"success"}>
         <Toast.Header>
           <strong className="me-auto">SUCCESS!!</strong>
           <small className="text-muted">just now</small>
@@ -193,7 +171,7 @@ return <>
                     <span>Total Price</span>
                     <Form.Control type="number" value={Math.round((price * quantity + Number.EPSILON)*100)/100} readOnly />
                     <br/>
-                    <Button style={{float:"right"}} onClick={addToCart}>Add to Cart+</Button> 
+                    <Button style={{float:"right"}} onClick={addToCart} >Add to Cart+</Button> 
                     </Col>
 
                     </Form.Group>

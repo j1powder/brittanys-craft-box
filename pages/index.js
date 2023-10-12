@@ -31,7 +31,7 @@ export default function Home() {
         <Container>
         <Row>
           <Col md={12}>
-            <Image src={logo} />
+            <Image src={logo} alt="logo" />
            </Col>
         </Row>
           <Row>
